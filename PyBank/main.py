@@ -68,6 +68,6 @@ with open("Bank_data.txt", "a+") as f:
     f.write("Financial Analysis\n--------------------------------------\n")
     f.write(f"Total Months: {count_month}\n")
     f.write(f"Total: {cur(sum(bank_amount))}\n")
-    f.write(f"Average  Change: ${cur(avg_value)}\n")
+    f.write(f"Average  Change: {cur(avg_value)}\n")
     f.write(f"Greatest Increase in Profits: {minMonth} {cur(maxBankValue)}\n")
     f.write(f"Greatest Decrease in Profits: {maxMonth} {cur(minBankValue)}\n")
