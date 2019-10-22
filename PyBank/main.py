@@ -3,14 +3,6 @@ Jean-Paul Mitterhofer
 10/21/2019
 
 PyBank:
-
-The total number of months included in the dataset
-The net total amount of "Profit/Losses" over the entire period
-The average of the changes in "Profit/Losses" over the entire period
-The greatest increase in profits (date and amount) over the entire period
-The greatest decrease in losses (date and amount) over the entire period
-
-In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 '''
 
 import os
@@ -22,10 +14,7 @@ months = []
 bank_amount = []
 
 #path to collect data from csv file
-#pybank_csv = os.path.join('.','Resources','budget_data.csv')
-
-#os path call does not work on my cpu so I had to use the file path of my file
-pybank_csv = "C:/DataAnalyticsBootCamp/WEEK_3/python-challenge/PyBank/Resources/budget_data.csv"
+pybank_csv = os.path.join('.','Resources','budget_data.csv')
 
 #Reading in the csv file
 with open (pybank_csv, 'r') as csvfile:
@@ -33,6 +22,7 @@ with open (pybank_csv, 'r') as csvfile:
     #Split the data by comma deliminator
     csvreader = csv.reader(csvfile, delimiter = ',')
 
+    #header row
     header = next(csvreader)
 
     #for loop to define columns months, and bank amount
