@@ -24,20 +24,20 @@ with open (pypoll_csv, 'r') as csvfile:
 
     # this dictionary provides a defualt value for each key. 
     # The value is going to be an int defined as 0
-    d = defaultdict(int)
+    poll_dict = defaultdict(int)
 
     #Find how many candidates there are within the csv
     #Each candidate shall be defined as a key
     #The increment is defined as a value
     for row in csvreader:
-        d[row['Candidate']] += 1
+        poll_dict[row['Candidate']] += 1
 
     #Finding the winner key and value
-    v_max = max(d.values())
-    k_max = max(d, key=d.get)
+    v_max = max(poll_dict.values())
+    k_max = max(poll_dict, key=poll_dict.get)
 
     #Sum votes
-    votes = sum(d.values())
+    votes = sum(poll_dict.values())
 
 #format number
 def nu(amount):
@@ -57,7 +57,7 @@ def pe(amount):
 print("\nElection Results\n--------------------------------------\n")
 print(f"Total Votes: {nu(votes)}")
 print("--------------------------------------")
-for key, value in d.items():
+for key, value in poll_dict.items():
     print(f"{key}: {pe(value/votes)} ({nu(value)})")
 
 print("--------------------------------------")
@@ -68,7 +68,7 @@ with open("Poll_data.txt", "a+") as f:
     f.write("\nElection Results\n--------------------------------------\n")
     f.write(f"Total Votes: {nu(votes)}\n")
     f.write("--------------------------------------\n")
-    for key, value in d.items():
+    for key, value in poll_dict.items():
         f.write(f"{key} {pe(value/votes)} ({nu(value)})\n")
     f.write("--------------------------------------\n")
     f.write(f"Winner: {k_max} with {nu(v_max)} votes!\n")
