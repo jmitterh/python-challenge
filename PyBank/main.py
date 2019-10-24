@@ -14,7 +14,7 @@ months = []
 bank_amount = []
 
 #path to collect data from csv file
-pybank_csv = os.path.join('.','Resources','budget_data.csv')
+pybank_csv = os.path.join('.','PyBank','Resources','budget_data.csv')
 
 #Reading in the csv file
 with open (pybank_csv, 'r') as csvfile:
@@ -65,7 +65,7 @@ print(f"Greatest Decrease in Profits: {maxMonth} {cur(minBankValue)}")
 
 #export to a text file
 with open("Bank_data.txt", "a+") as f:
-    f.write("Financial Analysis\n--------------------------------------\n")
+    f.write("\nFinancial Analysis\n--------------------------------------\n")
     f.write(f"Total Months: {count_month}\n")
     f.write(f"Total: {cur(sum(bank_amount))}\n")
     f.write(f"Average  Change: {cur(avg_value)}\n")
