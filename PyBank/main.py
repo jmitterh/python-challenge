@@ -45,10 +45,10 @@ with open (pybank_csv, 'r') as csvfile:
         elif maxBankValue == bank_amount[i]:
             maxMonth = months[i]
 
-    #the average change last month - first month/ total months
+    #the average change last month - first month/ total months-first month
     first_v = bank_amount[0]
     last_v = bank_amount[-1]
-    avg_value = (last_v - first_v)/count_month
+    avg_value = (last_v - first_v)/(count_month-1)
 
 #format floats to currency by creating a function
 def cur(amount):
