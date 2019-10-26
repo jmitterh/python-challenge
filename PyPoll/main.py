@@ -31,6 +31,7 @@ with open (pypoll_csv, 'r') as csvfile:
     #The increment is defined as a value
     for row in csvreader:
         poll_dict[row['Candidate']] += 1
+    print(poll_dict)
 
     #Finding the winner key and value
     v_max = max(poll_dict.values())

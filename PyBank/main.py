@@ -45,8 +45,10 @@ with open (pybank_csv, 'r') as csvfile:
         elif maxBankValue == bank_amount[i]:
             maxMonth = months[i]
 
-    #the average value
-    avg_value = sum(bank_amount)/count_month
+    #the average change last month - first month/ total months
+    first_v = bank_amount[0]
+    last_v = bank_amount[-1]
+    avg_value = (last_v - first_v)/count_month
 
 #format floats to currency by creating a function
 def cur(amount):
@@ -59,7 +61,7 @@ def cur(amount):
 print("Financial Analysis\n--------------------------------------\n")
 print(f"Total Months: {count_month}")
 print(f"Total: {cur(sum(bank_amount))}")
-print(f"Average  Change: {cur(avg_value)}")
+print(f"Average Change: {cur(avg_value)}")
 print(f"Greatest Increase in Profits: {minMonth} {cur(maxBankValue)}")
 print(f"Greatest Decrease in Profits: {maxMonth} {cur(minBankValue)}")
 
@@ -68,6 +70,6 @@ with open("Bank_data.txt", "a+") as f:
     f.write("\nFinancial Analysis\n--------------------------------------\n")
     f.write(f"Total Months: {count_month}\n")
     f.write(f"Total: {cur(sum(bank_amount))}\n")
-    f.write(f"Average  Change: {cur(avg_value)}\n")
+    f.write(f"Average Change: {cur(avg_value)}\n")
     f.write(f"Greatest Increase in Profits: {minMonth} {cur(maxBankValue)}\n")
     f.write(f"Greatest Decrease in Profits: {maxMonth} {cur(minBankValue)}\n")
